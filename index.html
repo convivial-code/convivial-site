@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>convivial — gemeinsam essen, teilen, leben · Darmstadt</title>
+<meta name="description" content="convivial: lange Tafeln, gemeinsames Kochen und Teilen in Darmstadt. Supper Club, Team-Events und mehr.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23b4532a'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23f6f1e7' font-family='Georgia,serif'%3Ec%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#f6f1e7; --ink:#1f1a14; --muted:#6b6257; --line:#d9cfbd;
+    --accent:#b4532a; --accent-ink:#8a3c1c;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:"Avenir Next","Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --w:68rem;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font:1.0625rem/1.6 var(--sans)}
+  a{color:var(--accent-ink);text-underline-offset:.18em}
+  a:hover{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:var(--w);margin:0 auto;padding:0 1.5rem}
+  header.top{display:flex;justify-content:space-between;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+  .mark{font:600 1.25rem/1 var(--serif);letter-spacing:.01em;color:var(--ink);text-decoration:none}
+  .lang{font-size:.875rem;color:var(--muted)}
+  .lang button{font:inherit;background:none;border:0;padding:.5rem .25rem;color:var(--muted);cursor:pointer;min-height:44px}
+  .lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-underline-offset:.3em}
+
+  /* hero: left-aligned, word + etymology */
+  .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;padding:5rem 0 4rem;align-items:end}
+  .hero h1{font:400 clamp(3.2rem,9vw,7.5rem)/.95 var(--serif);letter-spacing:-.02em;margin:0}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .lede{font:400 clamp(1.25rem,2.2vw,1.6rem)/1.35 var(--serif);margin:1.5rem 0 0;max-width:30ch;text-wrap:pretty}
+  .etym{border-top:2px solid var(--ink);padding-top:1rem;font-size:.95rem;color:var(--muted)}
+  .etym b{display:block;font:italic 400 1.4rem/1.2 var(--serif);color:var(--ink);margin-bottom:.4rem}
+  .etym .ipa{font-variant:small-caps;letter-spacing:.04em}
+
+  /* long table strip */
+  .table{border-block:1px solid var(--line);padding:2.5rem 0;margin:1rem 0 0}
+  .table p{font:400 clamp(1.4rem,3vw,2.1rem)/1.3 var(--serif);margin:0;max-width:40ch;text-wrap:pretty}
+
+  /* projects as an index, not cards */
+  section.projects{padding:4rem 0}
+  .eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1.5rem}
+  ol.index{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+  ol.index li{display:grid;grid-template-columns:3rem 1.1fr 2fr 7rem;gap:1.5rem;align-items:baseline;padding:1.25rem 0;border-bottom:1px solid var(--line)}
+  .no{font:400 .9rem/1 var(--serif);color:var(--muted)}
+  .name{font:400 1.5rem/1.2 var(--serif)}
+  .name small{display:block;font:.8rem/1.4 var(--sans);color:var(--muted);letter-spacing:.02em}
+  .desc{color:var(--ink);text-wrap:pretty}
+  .status{font-size:.8rem;text-align:right;color:var(--muted)}
+  .status.now{color:var(--accent-ink);font-weight:600}
+  li.later .name,li.later .desc{color:var(--muted)}
+
+  /* contact */
+  section.contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:4rem 0 5rem;border-top:1px solid var(--line)}
+  .contact h2{font:400 clamp(2rem,4vw,3rem)/1.05 var(--serif);margin:0}
+  .contact p{margin:.5rem 0 0;max-width:38ch}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 1.4rem;margin-top:1.25rem;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:2px;font-weight:600}
+  .btn:hover{background:var(--accent);color:var(--paper)}
+
+  footer{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.875rem;color:var(--muted);display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:space-between}
+  footer a{color:var(--muted)}
+
+  [data-lang=en] .de, [data-lang=de] .en{display:none}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;gap:2rem;padding:3rem 0 2.5rem}
+    ol.index li{grid-template-columns:2rem 1fr;gap:.25rem 1rem}
+    .desc,.status{grid-column:2}
+    .status{text-align:left}
+    section.contact{grid-template-columns:1fr;gap:1rem}
+  }
+</style>
+</head>
+<body data-lang="de">
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="/">convivial</a>
+    <div class="lang" role="group" aria-label="Sprache / Language">
+      <button type="button" data-set="de" aria-pressed="true">DE</button> ·
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>con<em>vivial</em></h1>
+        <p class="lede de">Gemeinsam essen, teilen, leben — an einer langen Tafel in Darmstadt.</p>
+        <p class="lede en">Eat, share, live together — around one long table in Darmstadt.</p>
+      </div>
+      <aside class="etym">
+        <b>convivium</b>
+        <span class="de">lat. <span class="ipa">con</span> „zusammen“ + <span class="ipa">vivere</span> „leben“ — das gemeinsame Mahl, bei dem Fremde zu Tischgenossen werden.</span>
+        <span class="en">Latin <span class="ipa">con</span> “together” + <span class="ipa">vivere</span> “to live” — the shared meal where strangers become companions.</span>
+      </aside>
+    </section>
+
+    <div class="table">
+      <p class="de">Ein Ort, an dem Menschen einander etwas anbieten: ein Essen, ein Glas, eine Fähigkeit, einen Abend. Wir fangen klein an — mit einer Tafel und offenen Plätzen.</p>
+      <p class="en">A place where people offer each other something: a meal, a drink, a skill, an evening. We start small — with one table and open seats.</p>
+    </div>
+
+    <section class="projects" aria-labelledby="p-h">
+      <p class="eyebrow" id="p-h"><span class="de">Was entsteht</span><span class="en">What's coming</span></p>
+      <ol class="index">
+        <li>
+          <span class="no">01</span>
+          <span class="name">Kitchen<small>convivial.kitchen</small></span>
+          <span class="desc"><span class="de">Supper Club: ein festes Menü, eine lange Tafel, Plätze für Fremde.</span><span class="en">Supper club: a set menu, a long table, seats for strangers.</span></span>
+          <span class="status now"><span class="de">bald</span><span class="en">soon</span></span>
+        </li>
+        <li>
+          <span class="no">02</span>
+          <span class="name">Events<small>convivial.events</small></span>
+          <span class="desc"><span class="de">Gemeinsam kochen und essen als Team-Event für Firmen und Gruppen.</span><span class="en">Cooking and eating together as a team event for companies and groups.</span></span>
+          <span class="status now"><span class="de">Anfragen offen</span><span class="en">taking requests</span></span>
+        </li>
+        <li class="later">
+          <span class="no">03</span>
+          <span class="name">DIY<small>convivial.diy</small></span>
+          <span class="desc"><span class="de">Kochkurse, Reparieren und Selbermachen — zusammen.</span><span class="en">Cooking classes, repairing and making things — together.</span></span>
+          <span class="status"><span class="de">später</span><span class="en">later</span></span>
+        </li>
+        <li class="later">
+          <span class="no">04</span>
+          <span class="name">Center<small>convivial.center</small></span>
+          <span class="desc"><span class="de">Gemeinsam einkaufen: eine Food-Coop für die Nachbarschaft.</span><span class="en">Buying together: a food co-op for the neighbourhood.</span></span>
+          <span class="status"><span class="de">später</span><span class="en">later</span></span>
+        </li>
+        <li class="later">
+          <span class="no">05</span>
+          <span class="name">Farm<small>convivial.farm</small></span>
+          <span class="desc"><span class="de">Gemüsekisten direkt von Höfen aus der Region.</span><span class="en">Veg boxes straight from regional farms.</span></span>
+          <span class="status"><span class="de">später</span><span class="en">later</span></span>
+        </li>
+        <li class="later">
+          <span class="no">06</span>
+          <span class="name">Homes<small>convivial.homes</small></span>
+          <span class="desc"><span class="de">Gastfreundschaft: ein freies Zimmer, ein gemeinsames Abendessen.</span><span class="en">Hospitality: a spare room, a shared dinner.</span></span>
+          <span class="status"><span class="de">später</span><span class="en">later</span></span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="contact" aria-labelledby="c-h">
+      <h2 id="c-h"><span class="de">Einen Platz an der Tafel?</span><span class="en">A seat at the table?</span></h2>
+      <div>
+        <p class="de">Schreib uns, wenn du beim ersten Abend dabei sein, selbst etwas anbieten oder ein Team-Event anfragen möchtest.</p>
+        <p class="en">Write to us if you want to join the first evening, offer something yourself, or ask about a team event.</p>
+        <a class="btn" href="mailto:hello@convivial.social?subject=Platz%20an%20der%20Tafel">hello@convivial.social</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>convivial · Darmstadt</span>
+    <span><a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html"><span class="de">Datenschutz</span><span class="en">Privacy</span></a></span>
+  </footer>
+</div>
+<script>
+  (function(){
+    var b=document.body, btns=document.querySelectorAll('.lang button');
+    function set(l){b.dataset.lang=l;document.documentElement.lang=l;
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.set===l)});
+      try{localStorage.setItem('lang',l)}catch(e){}}
+    var saved=null; try{saved=localStorage.getItem('lang')}catch(e){}
+    set(saved || ((navigator.language||'de').slice(0,2)==='de'?'de':'en'));
+    btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.set)})});
+  })();
+</script>
+</body>
+</html>
